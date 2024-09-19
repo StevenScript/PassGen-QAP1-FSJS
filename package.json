@@ -1,0 +1,11 @@
+{
+  "name": "passgen-qap1-fsjs",
+  "version": "1.0.0",
+  "description": "Password Generator That Runs Via CLI",
+  "main": "PassGenerator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven Norris (stevenscript)",
+  "license": "ISC"
+}
