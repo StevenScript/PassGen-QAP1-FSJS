@@ -1,5 +1,9 @@
 #!usr/bin/env node
 
+//Steven Norris
+//QAP 1 - Full Stack
+//September 18, 2024
+
 const Logo = `
 !        ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄                  
 !       ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌                 
@@ -39,4 +43,32 @@ const Logo = `
 ...
 `;
 
-console.log(Logo);
+// Debugging: show the arguments passed
+const args = process.argv;
+console.log(args);
+const length = parseInt(args[2], 10); // Parse the length argument
+
+// List of Allowed Characters
+const UPPER_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const LOWER_LETTERS = "abcdefghijklmnopqrstuvwxyz";
+const DIGITS = "1234567890";
+const SPECIAL_CHARACTERS = "!#%^&*";
+
+// Combining all character groups
+const characters_ALL =
+  UPPER_LETTERS + LOWER_LETTERS + DIGITS + SPECIAL_CHARACTERS;
+
+// Function to generate a password
+const generatePassword = (len) => {
+  let password = "";
+  for (let i = 1; i <= len; i++) {
+    password += characters_ALL.charAt(
+      Math.floor(Math.random() * characters_ALL.length)
+    );
+  }
+  return password;
+};
+
+// Generate password using the length from command line arguments
+const generatedPassword = generatePassword(length);
+console.log(`Generated Password: ${generatedPassword}`);
